@@ -1,10 +1,13 @@
 require("dotenv").config();
 let mongoose = require("mongoose");
 
-mongoose.connect`mongodb+srv://ramonmosquera:${process.env.MONGO_PASSWORD}@cluster0.fcwmg46.mongodb.net/`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  `mongodb+srv://ramonmosquera:${process.env.MONGO_PASSWORD}@cluster0.fcwmg46.mongodb.net/`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 // mongoose.connection.on("open", function (ref) {
 //   console.log("Connected to mongo server.");
 
