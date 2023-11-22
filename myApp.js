@@ -1,10 +1,19 @@
 require("dotenv").config();
-const mongoose = require("mongoose");
+let mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect`mongodb+srv://ramonmosquera:${process.env.MONGO_PASSWORD}@cluster0.fcwmg46.mongodb.net/`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+// mongoose.connection.on("open", function (ref) {
+//   console.log("Connected to mongo server.");
+
+//   mongoose.connection.db.listCollections().toArray(function (err, names) {
+//     console.log(names);
+//   });
+// });
+
+console.log(mongoose.connection.readyState);
 
 let Person;
 
