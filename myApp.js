@@ -1,5 +1,11 @@
-require('dotenv').config();
+require("dotenv").config();
+const mongoose = require("mongoose");
 
+const mongo_psswd = process.env.MONGO_PASSWORD;
+mongoose.connect(
+  `mongodb+srv://ramonmosquera:${mongo_psswd}@cluster0.fcwmg46.mongodb.net/`,
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 let Person;
 
