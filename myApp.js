@@ -16,7 +16,7 @@ let mongoose = require("mongoose");
   }
 })();
 
-const personSchema = new mongoose.Schema({
+let personSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -25,7 +25,7 @@ const personSchema = new mongoose.Schema({
   favoriteFoods: [String],
 });
 
-const Person = mongoose.model("Person", personSchema);
+let Person = mongoose.model("Person", personSchema);
 
 // let dave = new Person({
 //   name: "Dave",
@@ -34,17 +34,19 @@ const Person = mongoose.model("Person", personSchema);
 // });
 // console.log(dave);
 
-const createAndSavePerson = () => {
+const createAndSavePerson = (done) => {
   let francesca = new Person({
     name: "Francesca",
     age: 20,
     favoriteFoods: ["sushi"],
   });
-  francesca.save(function (err, data) {
-    if (err) {
-      console.log(err);
+  francesca.save((error, data) => {
+    if (error) {
+      console.log(error);
+      done(error);
+    } else {
+      done(null, data);
     }
-    console.log(data);
   });
 };
 
