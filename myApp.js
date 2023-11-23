@@ -2,20 +2,19 @@
 require("dotenv").config();
 let mongoose = require("mongoose");
 
-mongoose
-  .connect(
-    `mongodb+srv://ramonmosquera:${process.env.MONGO_PASSWORD}@cluster0.fcwmg46.mongodb.net/`,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
-  .then(() => {
-    console.log("Successful database connection.");
-  })
-  .catch((err) => {
+(async () => {
+  try {
+    await mongoose.connect(
+      `mongodb+srv://ramonmosquera:${process.env.MONGO_PASSWORD}@cluster0.fcwmg46.mongodb.net/`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
+  } catch (err) {
     console.log("Database connection error.", err);
-  });
+  }
+})();
 
 const personSchema = new mongoose.Schema({
   name: {
