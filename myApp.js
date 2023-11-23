@@ -2,6 +2,10 @@
 require("dotenv").config();
 let mongoose = require("mongoose");
 
+console.log(
+  `mongodb+srv://ramonmosquera:${process.env.MONGO_PASSWORD}@cluster0.fcwmg46.mongodb.net/`
+);
+
 mongoose
   .connect(
     `mongodb+srv://ramonmosquera:${process.env.MONGO_PASSWORD}@cluster0.fcwmg46.mongodb.net/`,
