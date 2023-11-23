@@ -9,4 +9,4 @@ const personSchema = new mongoose.Schema({
   favoriteFoods: String,
 });
 
-const mongoosePerson = mongoose.model("person", personSchema);
+const Person = mongoose.model("Person", personSchema);

@@ -1,4 +1,4 @@
-const Person = require("./models/personModel");
+// require("./models/personModel");
 require("dotenv").config();
 let mongoose = require("mongoose");
 
@@ -16,6 +16,17 @@ mongoose.connect(
 //     console.log(names);
 //   });
 // });
+
+const personSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  age: Number,
+  favoriteFoods: String,
+});
+
+const Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
