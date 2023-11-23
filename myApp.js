@@ -95,8 +95,6 @@ const findEditThenSave = (personId, done) => {
       done(null, updatedPerson);
     });
   });
-
-  done(null /*, data*/);
 };
 
 const findAndUpdate = (personName, done) => {
