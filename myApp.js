@@ -41,13 +41,11 @@ const createAndSavePerson = (done) => {
     age: 20,
     favoriteFoods: ["sushi"],
   });
-  francesca.save((error, data) => {
-    if (error) {
-      console.log(error);
-      done(error);
-    } else {
-      done(null, data);
+  francesca.save(function (err, data) {
+    if (err) {
+      console.log(err);
     }
+    console.log(data);
   });
 };
 
