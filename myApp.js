@@ -28,15 +28,26 @@ let personSchema = new mongoose.Schema({
 
 let Person = mongoose.model("Person", personSchema);
 
-let dave = new Person({
-  name: "Dave",
-  age: 27,
-  favoriteFoods: ["pizza", "chips"],
-});
-console.log(dave);
+// let dave = new Person({
+//   name: "Dave",
+//   age: 27,
+//   favoriteFoods: ["pizza", "chips"],
+// });
+// console.log(dave);
 
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+  let francesca = new Person({
+    name: "Francesca",
+    age: 20,
+    favoriteFoods: ["sushi"],
+  });
+  francesca.save((error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      done(null, data);
+    }
+  });
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
