@@ -17,7 +17,7 @@ mongoose.connect(
 //   });
 // });
 
-const personSchema = new mongoose.Schema({
+let personSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -26,7 +26,13 @@ const personSchema = new mongoose.Schema({
   favoriteFoods: String,
 });
 
-const Person = mongoose.model("Person", personSchema);
+let Person = mongoose.model("Person", personSchema);
+
+let dave = new Person({
+  name: "Dave",
+  age: 27,
+  favoriteFoods: ["pizza", "chips"],
+});
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
