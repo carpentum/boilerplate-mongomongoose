@@ -144,8 +144,6 @@ const queryChain = (done) => {
       if (error) return console.log(error);
       done(null, person);
     });
-
-  done(null /*, data*/);
 };
 
 /** **Well Done !!**
