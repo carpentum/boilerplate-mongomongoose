@@ -17,7 +17,7 @@ mongoose
     console.log("Database connection error.");
   });
 
-let personSchema = new mongoose.Schema({
+const personSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -26,7 +26,7 @@ let personSchema = new mongoose.Schema({
   favoriteFoods: [String],
 });
 
-let Person = mongoose.model("Person", personSchema);
+const Person = mongoose.model("Person", personSchema);
 
 // let dave = new Person({
 //   name: "Dave",
@@ -35,7 +35,7 @@ let Person = mongoose.model("Person", personSchema);
 // });
 // console.log(dave);
 
-const createAndSavePerson = (done) => {
+const createAndSavePerson = () => {
   let francesca = new Person({
     name: "Francesca",
     age: 20,
