@@ -9,13 +9,13 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
-// mongoose.connection.on("open", function (ref) {
-//   console.log("Connected to mongo server.");
+mongoose.connection.on("open", function (ref) {
+  console.log("Connected to mongo server.");
 
-//   mongoose.connection.db.listCollections().toArray(function (err, names) {
-//     console.log(names);
-//   });
-// });
+  mongoose.connection.db.listCollections().toArray(function (err, names) {
+    console.log(names);
+  });
+});
 
 let personSchema = new mongoose.Schema({
   name: {
@@ -23,7 +23,7 @@ let personSchema = new mongoose.Schema({
     required: true,
   },
   age: Number,
-  favoriteFoods: String,
+  favoriteFoods: [String],
 });
 
 let Person = mongoose.model("Person", personSchema);
@@ -33,6 +33,7 @@ let dave = new Person({
   age: 27,
   favoriteFoods: ["pizza", "chips"],
 });
+console.log(dave);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
